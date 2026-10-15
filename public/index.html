@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhibit — browser evidence for every pull request</title>
+  <meta name="description" content="Exhibit reads each pull request, finds the pages it changes, and posts them on the PR: before and after, in light and dark, with a close-up of what changed.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="evidence/hero-base.png">
+  <link rel="preload" as="image" href="evidence/hero-head.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead-row">
+      <a class="brand" href="/" aria-label="Exhibit home">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="2.5" width="17" height="19" rx="1.5"/><path d="M7.5 7.5h9M7.5 11.5h9M7.5 15.5h5"/></svg>
+        Exhibit
+      </a>
+      <nav aria-label="Main">
+        <a href="#evidence">Evidence</a>
+        <a href="#config">Configuration</a>
+        <a href="#cloudflare">Built on Cloudflare</a>
+        <a class="nav-keep" href="https://github.com/cdonohue/exhibit">GitHub</a>
+        <a class="nav-cta" href="#setup">Set it up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="docket">Case file · pull request review</p>
+      <h1 id="hero-title">Every pull request, entered into evidence.</h1>
+      <p class="lede">Exhibit reads each pull request, finds the pages it really changes, and posts them on the PR: before and after, in light and dark, with a close-up of what changed.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#setup">Set it up</a>
+        <a class="button" href="#evidence">See the evidence</a>
+      </div>
+
+      <figure class="exhibit hero-exhibit">
+        <figcaption><span class="tag">Exhibit A</span> A pull request disabled the Add record button on a DNS page. Exhibit found the page from the diff and captured it on both versions.</figcaption>
+        <div class="pair">
+          <figure>
+            <img src="evidence/hero-base.png" width="1280" height="440" alt="Before: the DNS records card with a blue Add record button.">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <img src="evidence/hero-head.png" width="1280" height="440" alt="After: the same card with the Add record button greyed out.">
+            <figcaption>After</figcaption>
+          </figure>
+        </div>
+      </figure>
+    </section>
+
+    <section id="evidence" class="wrap section" aria-labelledby="evidence-title">
+      <p class="docket">The record</p>
+      <h2 id="evidence-title">What a reviewer gets on the pull request</h2>
+      <p class="section-lede">One comment, updated as the run goes. Each page the change reaches, with a close-up of the changed element and the full page folded away. Pages where nothing visible changed are folded too, so the comment shows what matters.</p>
+
+      <figure class="exhibit">
+        <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that makes the buttons in a shared card smaller, shortened.</figcaption>
+        <div class="comment" role="img" aria-label="A pull request comment: the DNS records page with a visible change of 74 percent, close-ups of the Add record button before and after in light and dark mode, then folded sections for the full page, a page with no visible change, the intent and the steps.">
+          <div class="comment-head"><span class="avatar" aria-hidden="true"></span><b>exhibit</b> <span class="bot">bot</span> <span class="muted">commented</span></div>
+          <div class="comment-body">
+            <p><code>/domains/acme-robotics.example/dns</code> · <b>visible change 74%</b> · <code>DomainDns.tsx</code> passes <code>actions</code> to the changed <code>Card</code>, so its button gets the new size.</p>
+            <p class="sub">Close-up: the "Add record" button in "DNS records"</p>
+            <table class="shots">
+              <colgroup><col class="label"><col><col></colgroup>
+              <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+              <tbody>
+                <tr><th>Light</th><td><img src="evidence/closeup-light-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-light-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
+                <tr><th>Dark</th><td><img src="evidence/closeup-dark-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-dark-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
+              </tbody>
+            </table>
+            <p class="fold">▸ Full page</p>
+            <p class="fold">▸ Checked, no visible change (1): <code>/</code></p>
+            <p><b>Intent:</b> Make buttons inside Card action areas smaller.</p>
+            <p class="fold">▸ Steps (9 of 9 done)</p>
+          </div>
+        </div>
+      </figure>
+
+      <ol class="exhibits">
+        <li>
+          <span class="tag">Exhibit C</span>
+          <h3>It reads the change, then finds the pages it reaches</h3>
+          <p>An agent reads the diff with facts computed from your code: which files import the changed one, which of them use the part that changed, and which route shows it, tabs included. It names only pages the crawl found or your router defines, never a guess: a page the crawl could not reach is checked against the router line that defines it.</p>
+        </li>
+        <li>
+          <span class="tag">Exhibit D</span>
+          <h3>A close-up of what changed</h3>
+          <p>The agent names the element where the change shows, by its label and the card around it. Exhibit finds it on both versions and crops it, in every theme, so a two-pixel change is plain to see. The full page is one click away.</p>
+        </li>
+        <li>
+          <span class="tag">Exhibit E</span>
+          <h3>Light and dark, checked before they are shown</h3>
+          <p>Each page is captured in every theme your app has, entered the way your app does it: the system setting, a class, an attribute, a stored choice or a URL parameter. Exhibit measures the page before it shows a theme, so a "dark" picture that is really light never reaches the comment.</p>
+        </li>
+        <li>
+          <span class="tag">Exhibit F</span>
+          <h3>Clef decides, and its decisions are on file</h3>
+          <p>Clef, Cloudflare's decision model, ranks the pages and compares each before-and-after pair. It returns probabilities, not prose: pages where a change shows come first, and pairs with no visible change are folded. Every request and answer is stored with the run.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="wrap section meme-section" aria-label="A statement from an expert witness">
+      <figure class="exhibit meme-exhibit">
+        <figcaption><span class="tag">Exhibit X</span> A statement from an expert witness.</figcaption>
+        <div class="meme">
+          <p class="meme-line meme-top">Yo dawg, I heard you like evidence</p>
+          <div class="droste" aria-hidden="true">
+            <div class="frame"><span class="frame-tag">Exhibit A</span><img src="evidence/page-head.png" alt="" width="1280" height="1031" loading="lazy">
+              <div class="frame"><span class="frame-tag">Exhibit A.1</span><img src="evidence/page-head.png" alt="" width="1280" height="1031" loading="lazy">
+                <div class="frame"><span class="frame-tag">Exhibit A.1.1</span><img src="evidence/page-head.png" alt="" width="1280" height="1031" loading="lazy">
+                  <div class="frame"><img src="evidence/page-head.png" alt="" width="1280" height="1031" loading="lazy"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="meme-line meme-bottom">so we put evidence in your evidence so you can review evidence while you review evidence</p>
+        </div>
+      </figure>
+    </section>
+
+    <section id="config" class="wrap section split" aria-labelledby="config-title">
+      <div>
+        <p class="docket">Procedure</p>
+        <h2 id="config-title">It finds what it can. You tell it the rest.</h2>
+        <p>Exhibit crawls your app for its pages and reads the diff on its own. One file in your repository tells it what it cannot find out: where your previews live, the pages to check on every pull request, and how your app switches themes, when it does not follow the system setting.</p>
+        <p>The file is read from the base branch, so a pull request cannot change its own configuration.</p>
+        <ul class="facts">
+          <li><b>Contained.</b> Preview URLs must match an allowlist, and each browser session can reach only the two previews.</li>
+          <li><b>Notes, not orders.</b> Your <code>instructions</code> and the pull request text are data for the agent. They can steer what it looks at, never what it can do.</li>
+          <li><b>Every push.</b> A new push stops the run for the old commit and updates the same comment.</li>
+        </ul>
+      </div>
+      <figure class="exhibit code-exhibit">
+        <figcaption><span class="tag">Exhibit G</span> <code>.github/exhibit.yml</code></figcaption>
+<pre><code><span class="c"># Where the base and head are deployed</span>
+preview:
+  base: https://app.example.workers.dev
+  head: https://{branch}-app.example.workers.dev
+
+<span class="c"># Pages to check on every pull request</span>
+routes:
+  always: [/]
+
+<span class="c"># Only when your app ignores the system setting</span>
+themes:
+  light: { type: default }
+  dark:  { type: class, target: html, value: dark }
+
+<span class="c"># Notes for the agent</span>
+instructions: |
+  Billing pages are the critical path.</code></pre>
+      </figure>
+    </section>
+
+    <section id="cloudflare" class="wrap section" aria-labelledby="cloudflare-title">
+      <p class="docket">Chain of custody</p>
+      <h2 id="cloudflare-title">Built end to end on Cloudflare</h2>
+      <p class="section-lede">No servers to run. The webhook, the browser, the models and the evidence all stay on one platform, and the container that drives the browser holds no Cloudflare or GitHub credentials.</p>
+      <dl class="stack">
+        <div><dt>Workers</dt><dd>Webhook, evidence, and the browser proxy.</dd></div>
+        <div><dt>Workflows</dt><dd>One durable run per commit.</dd></div>
+        <div><dt>Sandbox</dt><dd>The code and the e2e runner. No credentials.</dd></div>
+        <div><dt>Browser Run</dt><dd>Real Chrome for the crawl and the screenshots.</dd></div>
+        <div><dt>Workers AI</dt><dd>Kimi reads the change. Clef judges it.</dd></div>
+        <div><dt>Flue</dt><dd>The agent's tools and typed answer.</dd></div>
+        <div><dt>R2</dt><dd>Every screenshot and decision, on file.</dd></div>
+      </dl>
+    </section>
+
+    <section id="setup" class="wrap section" aria-labelledby="setup-title">
+      <p class="docket">Filing</p>
+      <h2 id="setup-title">Set it up</h2>
+      <ol class="steps">
+        <li><b>Deploy Exhibit</b> to your Cloudflare account from <a href="https://github.com/cdonohue/exhibit">the GitHub repository</a>: one Worker with its Workflow and Sandbox, and an R2 bucket. The README has the steps.</li>
+        <li><b>Create a GitHub App</b> that can read contents and pull requests and write comments, point its webhook at the Worker, and install it on your repositories.</li>
+        <li><b>Add <code>.github/exhibit.yml</code></b> with the URLs of your current version and your previews.</li>
+        <li><b>Open a pull request.</b> The comment appears at once and follows the run.</li>
+      </ol>
+      <p class="note">Exhibit is early and open source (MIT). It runs end to end on real pull requests today, and a run takes about three to five minutes.</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Exhibit · browser evidence for pull requests · built on Cloudflare · <a href="https://github.com/cdonohue/exhibit">GitHub</a></p>
+    <p class="muted">The screenshots show Cirrusflash, a fictional dashboard made for testing Exhibit.</p>
+  </footer>
+</body>
+</html>

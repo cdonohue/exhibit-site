@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Exhibit's marketing site: static files only, its own Worker.
+  "name": "exhibit-site",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./public" }
+}
