@@ -24,7 +24,6 @@
         <a href="#evidence">Evidence</a>
         <a href="#config">Configuration</a>
         <a href="#cloudflare">Built on Cloudflare</a>
-        <a class="nav-keep" href="https://github.com/cdonohue/exhibit">GitHub</a>
         <a class="nav-cta" href="#setup">Set it up</a>
       </nav>
     </div>
@@ -179,17 +178,17 @@ instructions: |
       <p class="docket">Filing</p>
       <h2 id="setup-title">Set it up</h2>
       <ol class="steps">
-        <li><b>Deploy Exhibit</b> to your Cloudflare account from <a href="https://github.com/cdonohue/exhibit">the GitHub repository</a>: one Worker with its Workflow and Sandbox, and an R2 bucket. The README has the steps.</li>
+        <li><b>Deploy Exhibit</b> to your Cloudflare account: one Worker with its Workflow and Sandbox, and an R2 bucket.</li>
         <li><b>Create a GitHub App</b> that can read contents and pull requests and write comments, point its webhook at the Worker, and install it on your repositories.</li>
         <li><b>Add <code>.github/exhibit.yml</code></b> with the URLs of your current version and your previews.</li>
         <li><b>Open a pull request.</b> The comment appears at once and follows the run.</li>
       </ol>
-      <p class="note">Exhibit is early and open source (MIT). It runs end to end on real pull requests today, and a run takes about three to five minutes.</p>
+      <p class="note">Exhibit is early. It runs end to end on real pull requests today, and a run takes about three to five minutes.</p>
     </section>
   </main>
 
   <footer class="wrap footer">
-    <p>Exhibit · browser evidence for pull requests · built on Cloudflare · <a href="https://github.com/cdonohue/exhibit">GitHub</a></p>
+    <p>Exhibit · browser evidence for pull requests · built on Cloudflare</p>
     <p class="muted">The screenshots show Cirrusflash, a fictional dashboard made for testing Exhibit.</p>
   </footer>
 </body>
