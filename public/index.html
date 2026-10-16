@@ -40,14 +40,14 @@
       </div>
 
       <figure class="exhibit hero-exhibit">
-        <figcaption><span class="tag">Exhibit A</span> A pull request disabled the Add record button on a DNS page. Exhibit found the page from the diff and captured it on both versions.</figcaption>
+        <figcaption><span class="tag">Exhibit A</span> A pull request changed the Add record button on a DNS page from primary to secondary. Exhibit found the page from the diff and captured it on both versions.</figcaption>
         <div class="pair">
           <figure>
-            <img src="evidence/hero-base.png" width="1280" height="440" alt="Before: the DNS records card with a blue Add record button.">
+            <img src="evidence/hero-base.png" width="1280" height="440" alt="Before: the Stratobeam DNS page, with a blue Add record button on the DNS records card.">
             <figcaption>Before</figcaption>
           </figure>
           <figure>
-            <img src="evidence/hero-head.png" width="1280" height="440" alt="After: the same card with the Add record button greyed out.">
+            <img src="evidence/hero-head.png" width="1280" height="440" alt="After: the same page, with a white, secondary Add record button.">
             <figcaption>After</figcaption>
           </figure>
         </div>
@@ -57,27 +57,25 @@
     <section id="evidence" class="wrap section" aria-labelledby="evidence-title">
       <p class="docket">The record</p>
       <h2 id="evidence-title">What a reviewer gets on the pull request</h2>
-      <p class="section-lede">One comment, updated as the run goes. Each page the change reaches, with a close-up of the changed element and the full page folded away. Pages where nothing visible changed are folded too, so the comment shows what matters.</p>
+      <p class="section-lede">One comment, updated as the run goes: the verdict, only the checks that need a look, and each changed element before and after. Everything else is folded away, so the comment shows what matters.</p>
 
       <figure class="exhibit">
-        <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that makes the buttons in a shared card smaller, shortened.</figcaption>
-        <div class="comment" role="img" aria-label="A pull request comment: the DNS records page with a visible change of 74 percent, close-ups of the Add record button before and after in light and dark mode, then folded sections for the full page, a page with no visible change, the intent and the steps.">
+        <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that makes the DNS card's Add record button secondary.</figcaption>
+        <div class="comment" role="img" aria-label="A pull request comment: Needs a human, 1 page changed, a design-system warning for 1 Kumo change, the Add record button before and after with the words Primary to secondary, then folded sections for the page and for how Exhibit checked it.">
           <div class="comment-head"><span class="avatar" aria-hidden="true"></span><b>exhibit</b> <span class="bot">bot</span> <span class="muted">commented</span></div>
           <div class="comment-body">
-            <p><code>/domains/acme-robotics.example/dns</code> · <b>visible change 74%</b> · <code>DomainDns.tsx</code> passes <code>actions</code> to the changed <code>Card</code>, so its button gets the new size.</p>
-            <p class="sub">Close-up: the "Add record" button in "DNS records"</p>
+            <p class="verdict"><b>🧑 Needs a human</b></p>
+            <p>1 page changed</p>
+            <p>⚠️ <b>Design system</b><br>1 Kumo change</p>
+            <p><b>Primary to secondary</b> · <code>&lt;Button variant="secondary"&gt;</code> · <code>DomainDns.tsx:44</code></p>
             <table class="shots">
-              <colgroup><col class="label"><col><col></colgroup>
-              <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+              <thead><tr><th>Before</th><th>After</th></tr></thead>
               <tbody>
-                <tr><th>Light</th><td><img src="evidence/closeup-light-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-light-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
-                <tr><th>Dark</th><td><img src="evidence/closeup-dark-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-dark-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
+                <tr><td><img src="evidence/closeup-light-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-light-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
               </tbody>
             </table>
-            <p class="fold">▸ Full page</p>
-            <p class="fold">▸ Checked, no visible change (1): <code>/</code></p>
-            <p><b>Intent:</b> Make buttons inside Card action areas smaller.</p>
-            <p class="fold">▸ Steps (9 of 9 done)</p>
+            <p class="fold">▸ The pages (1): <code>/domains/acme-robotics.example/dns</code></p>
+            <p class="fold">▸ How Exhibit checked this</p>
           </div>
         </div>
       </figure>
