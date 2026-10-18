@@ -116,6 +116,7 @@ nav .nav-cta { color: var(--ink); border: 1px solid var(--rule-strong); }
 .bot { font: 0.7rem var(--mono); border: 1px solid var(--rule-strong); border-radius: 99px; padding: 1px 6px; color: var(--ink-soft); }
 .comment-body { padding: 16px 18px 6px; }
 .comment-body h4 { font: 600 1rem var(--sans); margin: 18px 0 6px; }
+.comment-body h5 { font: 600 0.92rem var(--sans); margin: 22px 0 4px; }
 .comment .verdict { font-size: 1.15em; margin-bottom: 4px; }
 .shots { width: 100%; border-collapse: collapse; margin-bottom: 18px; table-layout: fixed; }
 .shots th, .shots td { padding: 6px; border: 1px solid var(--rule); vertical-align: middle; }
