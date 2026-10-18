@@ -122,6 +122,11 @@
           <h3>A check you can require</h3>
           <p>With a policy, each run ends the check <b>Exhibit policy</b>: passed, passed with notes, or needs a human. The rules read facts from the code and the pictures: a change that does not match its description, a changed design-system component, a changed export of your public API, a new accessibility problem, a page changed beyond the expected ones. Each rule holds the pull request for a person or only adds a note. A new accessibility problem counts only when a second look confirms it, and an approval from someone with write access clears the check.</p>
         </li>
+        <li>
+          <span class="tag">Exhibit H</span>
+          <h3>For coding agents, too</h3>
+          <p>An agent that opens a pull request cannot see the app. Exhibit gives it what changed as text it can act on: the check, a note on each changed line in "Files changed" with what the pictures measure ("case none → uppercase", "height 26 → 24 px, barely visible"), and the whole result as versioned JSON, linked from the check. A run takes two to three minutes, short enough for an agent to push, read the result and fix.</p>
+        </li>
       </ol>
     </section>
 
@@ -157,7 +162,7 @@
         </ul>
       </div>
       <figure class="exhibit code-exhibit">
-        <figcaption><span class="tag">Exhibit H</span> <code>.github/exhibit.yml</code></figcaption>
+        <figcaption><span class="tag">Exhibit I</span> <code>.github/exhibit.yml</code></figcaption>
 <pre><code><span class="c"># Where the base and head are deployed</span>
 preview:
   base: https://app.example.workers.dev
@@ -214,7 +219,7 @@ policy:
 
   <footer class="wrap footer">
     <p>Exhibit · browser evidence for pull requests · built on Cloudflare</p>
-    <p class="muted">The screenshots show Stratobeam (formerly Cirrusflash), a fictional dashboard made for testing Exhibit.</p>
+    <p class="muted">The screenshots show Stratobeam, a fictional dashboard made for testing Exhibit.</p>
   </footer>
 </body>
 </html>
