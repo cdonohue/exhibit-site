@@ -126,6 +126,7 @@ nav .nav-cta { color: var(--ink); border: 1px solid var(--rule-strong); }
 .shots img { width: 100%; }
 @media (max-width: 560px) { .shots col.label { width: 44px; } .shots th, .shots td { padding: 4px; } }
 .fold { color: var(--ink-soft); }
+.comment .link { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
 .sub { font-size: 0.82rem; color: var(--ink-soft); margin: -8px 0 16px; }
 
 .exhibits { list-style: none; padding: 0; margin: 48px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }

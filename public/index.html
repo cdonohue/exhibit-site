@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Exhibit — browser evidence for every pull request</title>
-  <meta name="description" content="Exhibit reads each pull request, finds the pages it changes, and posts them on the PR: before and after, in light and dark, with a close-up of what changed.">
+  <meta name="description" content="Exhibit reads each pull request, finds the pages it changes, and posts them on the PR: each changed element before and after, in its place on the page, with what the pictures measure, and a check your repository can require.">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="evidence/hero-base.png">
@@ -33,7 +33,7 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <p class="docket">Case file · pull request review</p>
       <h1 id="hero-title">Every pull request, entered into evidence.</h1>
-      <p class="lede">Exhibit reads each pull request, finds the pages it really changes, and posts them on the PR: before and after, in light and dark, with a close-up of what changed.</p>
+      <p class="lede">Exhibit reads each pull request, finds the pages it really changes, and posts them on the PR: each changed element before and after, in its place on the page, with what the pictures measure. A check tells you when a person should look.</p>
       <div class="hero-actions">
         <a class="button primary" href="#setup">Set it up</a>
         <a class="button" href="#evidence">See the evidence</a>
@@ -57,24 +57,36 @@
     <section id="evidence" class="wrap section" aria-labelledby="evidence-title">
       <p class="docket">The record</p>
       <h2 id="evidence-title">What a reviewer gets on the pull request</h2>
-      <p class="section-lede">One comment, updated as the run goes: the verdict, only the checks that need a look, and each changed element before and after. Everything else is folded away, so the comment shows what matters.</p>
+      <p class="section-lede">One comment, updated as the run goes. First the verdict and the findings that need a look; then each change, by page, before and after. The measurements, the full pages and how Exhibit checked it are folded away.</p>
 
       <figure class="exhibit">
-        <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that makes the DNS card's Add record button secondary.</figcaption>
-        <div class="comment" role="img" aria-label="A pull request comment: Needs a human, 1 page changed, a design-system warning for 1 Kumo change, the Add record button before and after with the words Primary to secondary, then folded sections for the page and for how Exhibit checked it.">
+        <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that restyles buttons on three pages. Two of its four changes are shown here.</figcaption>
+        <div class="comment" role="img" aria-label="A pull request comment: Needs a human, 3 pages changed. Findings: does not match the description, 32 percent, what the PR says against what the code does. Changes: on the Create worker page, All capitals, the Next button before and after; on the DNS page, 2 px shorter, barely visible, a row button before and after. Each page has a folded Details section.">
           <div class="comment-head"><span class="avatar" aria-hidden="true"></span><b>exhibit</b> <span class="bot">bot</span> <span class="muted">commented</span></div>
           <div class="comment-body">
             <p class="verdict"><b>🧑 Needs a human</b></p>
-            <p>1 page changed</p>
-            <p>⚠️ <b>Design system</b><br>1 Kumo change</p>
-            <p><b>Primary to secondary</b> · <code>&lt;Button variant="secondary"&gt;</code> · <code>DomainDns.tsx:44</code></p>
+            <p>3 pages changed</p>
+            <h4>Findings</h4>
+            <p>⚠️ <b>Doesn't match the description</b><br>32% match<br>The PR says: “Rounded primary actions, compact DNS table buttons”<br>The code: All capitals, 2 px shorter, Pill shape</p>
+            <h4>Changes (4)</h4>
+            <p><code>/workers/create</code> · Light</p>
+            <p><b>All capitals</b></p>
             <table class="shots">
-              <thead><tr><th>Before</th><th>After</th></tr></thead>
+              <thead><tr><th><span class="link">Before ↗</span></th><th><span class="link">After ↗</span></th></tr></thead>
               <tbody>
-                <tr><td><img src="evidence/closeup-light-base.png" alt="" width="360" height="160" loading="lazy"></td><td><img src="evidence/closeup-light-head.png" alt="" width="360" height="160" loading="lazy"></td></tr>
+                <tr><td><img src="evidence/change-caps-base.png" alt="" width="544" height="284" loading="lazy"></td><td><img src="evidence/change-caps-head.png" alt="" width="544" height="284" loading="lazy"></td></tr>
               </tbody>
             </table>
-            <p class="fold">▸ The pages (1): <code>/domains/acme-robotics.example/dns</code></p>
+            <p class="fold">▸ Details · measured · full page (Light, Dark)</p>
+            <p><code>/domains/acme-robotics.example/dns</code> · Light</p>
+            <p><b>2 px shorter</b> · barely visible</p>
+            <table class="shots">
+              <thead><tr><th><span class="link">Before ↗</span></th><th><span class="link">After ↗</span></th></tr></thead>
+              <tbody>
+                <tr><td><img src="evidence/change-row-base.png" alt="" width="544" height="284" loading="lazy"></td><td><img src="evidence/change-row-head.png" alt="" width="544" height="284" loading="lazy"></td></tr>
+              </tbody>
+            </table>
+            <p class="fold">▸ Details · measured · full page (Light, Dark)</p>
             <p class="fold">▸ How Exhibit checked this</p>
           </div>
         </div>
@@ -88,8 +100,8 @@
         </li>
         <li>
           <span class="tag">Exhibit D</span>
-          <h3>A close-up of what changed</h3>
-          <p>The agent names the element where the change shows, by its label and the card around it. Exhibit finds it on both versions and crops it, in every theme, so a two-pixel change is plain to see. The full page is one click away.</p>
+          <h3>Each change, in its place, measured</h3>
+          <p>Exhibit reads which elements the code changed, finds each one on both versions, and shows it inside its card. When a name matches several elements, such as a button in every table row, it keeps the one that changed. It also measures each element on both sides, so the words say what the pictures show: "All capitals", or "2 px shorter · barely visible" for a text class on an icon-only button. The full pages are one click away.</p>
         </li>
         <li>
           <span class="tag">Exhibit E</span>
@@ -100,6 +112,11 @@
           <span class="tag">Exhibit F</span>
           <h3>Clef decides, and its decisions are on file</h3>
           <p>Clef, Cloudflare's decision model, ranks the pages and compares each before-and-after pair. It returns probabilities, not prose: pages where a change shows come first, and pairs with no visible change are folded. Every request and answer is stored with the run.</p>
+        </li>
+        <li>
+          <span class="tag">Exhibit G</span>
+          <h3>A check you can require</h3>
+          <p>With a policy, each run ends the check <b>Exhibit policy</b>: passed, passed with notes, or needs a human. The rules read facts from the code and the pictures: a change that does not match its description, a changed design-system component, a changed export of your public API, a new accessibility problem, a page changed beyond the expected ones. Each rule holds the pull request for a person or only adds a note. A new accessibility problem counts only when a second look confirms it, and an approval from someone with write access clears the check.</p>
         </li>
       </ol>
     </section>
@@ -132,11 +149,11 @@
         <ul class="facts">
           <li><b>Contained.</b> Preview URLs must match an allowlist, and each browser session can reach only the two previews.</li>
           <li><b>Notes, not orders.</b> Your <code>instructions</code> and the pull request text are data for the agent. They can steer what it looks at, never what it can do.</li>
-          <li><b>Every push.</b> A new push stops the run for the old commit and updates the same comment.</li>
+          <li><b>Every push.</b> A new push stops the run for the old commit and updates the same comment. A draft waits until it is ready for review.</li>
         </ul>
       </div>
       <figure class="exhibit code-exhibit">
-        <figcaption><span class="tag">Exhibit G</span> <code>.github/exhibit.yml</code></figcaption>
+        <figcaption><span class="tag">Exhibit H</span> <code>.github/exhibit.yml</code></figcaption>
 <pre><code><span class="c"># Where the base and head are deployed</span>
 preview:
   base: https://app.example.workers.dev
@@ -153,7 +170,13 @@ themes:
 
 <span class="c"># Notes for the agent</span>
 instructions: |
-  Billing pages are the critical path.</code></pre>
+  Billing pages are the critical path.
+
+<span class="c"># The check: each rule holds the PR or adds a note</span>
+policy:
+  intentional:   { below: 0.5, then: human }
+  design-system: { package: "@cloudflare/kumo", then: note }
+  accessibility: { impact: serious, then: human }</code></pre>
       </figure>
     </section>
 
@@ -177,11 +200,11 @@ instructions: |
       <h2 id="setup-title">Set it up</h2>
       <ol class="steps">
         <li><b>Deploy Exhibit</b> to your Cloudflare account: one Worker with its Workflow and Sandbox, and an R2 bucket.</li>
-        <li><b>Create a GitHub App</b> that can read contents and pull requests and write comments, point its webhook at the Worker, and install it on your repositories.</li>
+        <li><b>Create a GitHub App</b> that can read contents and pull requests, write comments and checks, and receive pull request and review events; point its webhook at the Worker, and install it on your repositories.</li>
         <li><b>Add <code>.github/exhibit.yml</code></b> with the URLs of your current version and your previews.</li>
         <li><b>Open a pull request.</b> The comment appears at once and follows the run.</li>
       </ol>
-      <p class="note">Exhibit is early. It runs end to end on real pull requests today, and a run takes about three to five minutes.</p>
+      <p class="note">Exhibit is early. It runs end to end on real pull requests today, and a run takes about two to three minutes.</p>
     </section>
   </main>
 
