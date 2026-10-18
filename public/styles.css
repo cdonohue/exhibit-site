@@ -126,6 +126,9 @@ nav .nav-cta { color: var(--ink); border: 1px solid var(--rule-strong); }
 .shots img { width: 100%; }
 @media (max-width: 560px) { .shots col.label { width: 44px; } .shots th, .shots td { padding: 4px; } }
 .fold { color: var(--ink-soft); }
+.comment blockquote { margin: 0 0 12px; padding: 0 12px; border-left: 3px solid var(--rule-strong); color: var(--ink-soft); }
+.comment blockquote p { margin: 0; }
+.comment .label { margin: 0 0 4px; }
 .comment .link { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
 .sub { font-size: 0.82rem; color: var(--ink-soft); margin: -8px 0 16px; }
 
