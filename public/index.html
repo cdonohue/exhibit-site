@@ -61,17 +61,17 @@
 
       <figure class="exhibit">
         <figcaption><span class="tag">Exhibit B</span> The comment on a demo pull request that restyles buttons on three pages. Two of its four changes are shown here.</figcaption>
-        <div class="comment" role="img" aria-label="A pull request comment: Needs a human, 3 pages changed. Findings: does not match the description, 32 percent; the PR description, quoted, and what the code does, quoted. Changes: on the Create worker page, All capitals, the Next button before and after; on the DNS page, 2 px shorter, barely visible, a row button before and after. Each page has a folded Details section.">
+        <div class="comment" role="img" aria-label="A pull request comment: Needs a human, 3 pages changed. Findings: does not match the description, 32 percent; the PR description and what the code does, side by side. Changes: on the Create worker page, All capitals, the Next button before and after; on the DNS page, 2 px shorter, barely visible, a row button before and after. Each page has a folded Details section.">
           <div class="comment-head"><span class="avatar" aria-hidden="true"></span><b>exhibit</b> <span class="bot">bot</span> <span class="muted">commented</span></div>
           <div class="comment-body">
             <p class="verdict"><b>🧑 Needs a human</b></p>
             <p>3 pages changed</p>
             <h4>Findings</h4>
             <p>⚠️ <b>Doesn't match the description</b><br>32% match</p>
-            <p class="label">PR description</p>
-            <blockquote><p>Rounded primary actions, compact DNS table buttons</p></blockquote>
-            <p class="label">Code</p>
-            <blockquote><p>All capitals, 2 px shorter, Pill shape</p></blockquote>
+            <table class="shots facts-table">
+              <thead><tr><th>PR description</th><th>Code</th></tr></thead>
+              <tbody><tr><td>Rounded primary actions, compact DNS table buttons</td><td>All capitals, 2 px shorter, Pill shape</td></tr></tbody>
+            </table>
             <h4>Changes (4)</h4>
             <h5><code>/workers/create</code> · Light</h5>
             <p><b>All capitals</b></p>
